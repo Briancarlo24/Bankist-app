@@ -25,7 +25,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Brian Carlo Birondo',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -201,13 +201,14 @@ const startLogoutTimer = function () {
       clearInterval(timer);
       labelWelcome.textContent = `Log in to get started`;
       containerApp.style.opacity = 0;
+      document.querySelector('.modal').classList.remove('modal__close');
     }
     //Decrease 1 second
     time--;
     // When 0 seconds, stop timer and log out user
   };
   // Set time to 5 minutes
-  let time = 300;
+  let time = 90;
   console.log(time);
   // Call the timer every second
   tick();
@@ -237,6 +238,7 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
+    document.querySelector('.modal').classList.add('modal__close');
     /* //Create current Time and Date
     const dateNow = new Date();
     const day = `${dateNow.getDate()}`.padStart(2, 0);

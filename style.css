@@ -30,6 +30,54 @@ nav {
   padding: 0 2rem;
 }
 
+/* Header Code */
+.modal {
+  width: 80rem;
+  box-shadow: 0 0 2rem lightgray;
+  border-radius: 3px;
+  padding: 2rem 6rem;
+  text-align: center;
+  min-height: 50rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modal__title {
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+  letter-spacing: 0.3rem;
+}
+
+.modal__title--user,
+.modal__title--pass {
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+.modal__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.modal__col {
+  font-size: 2.4rem;
+  padding: 1rem 0;
+}
+.modal__tips {
+  font-size: 1.4rem;
+  width: 70ch;
+  display: inline-block;
+  text-align: center;
+  font-style: italic;
+  margin-top: 2.5rem;
+}
+.modal__close {
+  display: none;
+}
+
 .welcome {
   font-size: 1.9rem;
   font-weight: 500;
