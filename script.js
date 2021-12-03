@@ -72,6 +72,7 @@ const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
 
 const btnLogin = document.querySelector('.login__btn');
+const btnLogout = document.querySelector('.logout__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
 const btnLoan = document.querySelector('.form__btn--loan');
 const btnClose = document.querySelector('.form__btn--close');
@@ -86,6 +87,7 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 /////////////////////////////////////////////////////////////////////////////////////
+
 /**************************FUNCTIONS**************************/
 // const formatCurrency = function (currency) {};
 
@@ -195,6 +197,7 @@ const startLogoutTimer = function () {
     const min = `${Math.trunc(time / 60)}`.padStart(2, 0);
     const sec = `${time % 60}`.padStart(2, 0);
     // In each call, print the remaining time to UI
+
     labelTimer.textContent = `${min}:${sec}`;
 
     if (time === 0) {
@@ -202,6 +205,8 @@ const startLogoutTimer = function () {
       labelWelcome.textContent = `Log in to get started`;
       containerApp.style.opacity = 0;
       document.querySelector('.modal').classList.remove('modal__close');
+      document.querySelector('.logout__btn').classList.add('modal__close');
+      document.querySelector('.login').classList.remove('modal__close');
     }
     //Decrease 1 second
     time--;
@@ -214,6 +219,17 @@ const startLogoutTimer = function () {
   tick();
   const timer = setInterval(tick, 1000);
   return timer;
+};
+
+const clearInputFields = function () {
+  //Clear input fields
+  inputLoginUsername.value = '';
+  inputLoginPin.value = '';
+  inputLoginPin.blur();
+  if (timer) clearInterval(timer);
+  timer = startLogoutTimer();
+
+  updateUI(currentAccount);
 };
 
 ////////////////////////////////////////////
@@ -239,6 +255,8 @@ btnLogin.addEventListener('click', function (e) {
     }`;
     containerApp.style.opacity = 100;
     document.querySelector('.modal').classList.add('modal__close');
+    document.querySelector('.login').classList.add('modal__close');
+    document.querySelector('.logout__btn').classList.remove('modal__close');
     /* //Create current Time and Date
     const dateNow = new Date();
     const day = `${dateNow.getDate()}`.padStart(2, 0);
@@ -264,15 +282,28 @@ btnLogin.addEventListener('click', function (e) {
       options
     ).format(dateNow);
 
+    /*
     //Clear input fields
     inputLoginUsername.value = '';
     inputLoginPin.value = '';
     inputLoginPin.blur();
     if (timer) clearInterval(timer);
     timer = startLogoutTimer();
-
     updateUI(currentAccount);
+    */
+
+    clearInputFields();
   }
+});
+
+// Button Logout
+btnLogout.addEventListener('click', function () {
+  document.querySelector('.modal').classList.remove('modal__close');
+  document.querySelector('.logout__btn').classList.add('modal__close');
+  document.querySelector('.login').classList.remove('modal__close');
+  containerApp.style.opacity = 0;
+
+  clearInputFields();
 });
 
 //Transfer money

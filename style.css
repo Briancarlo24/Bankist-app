@@ -35,13 +35,14 @@ nav {
   width: 80rem;
   box-shadow: 0 0 2rem lightgray;
   border-radius: 3px;
-  padding: 2rem 6rem;
-  text-align: center;
   min-height: 50rem;
+  padding: 2rem 6rem;
   position: absolute;
   top: 20%;
   left: 50%;
+  text-align: center;
   transform: translateX(-50%);
+  transition: all 1s;
 }
 
 .modal__title {
@@ -55,8 +56,10 @@ nav {
 
 .modal__title--user,
 .modal__title--pass {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   font-weight: bold;
+  margin-bottom: 2rem;
+  opacity: 0.9;
 }
 .modal__grid {
   display: grid;
@@ -65,17 +68,20 @@ nav {
 .modal__col {
   font-size: 2.4rem;
   padding: 1rem 0;
+  opacity: 0.5;
 }
 .modal__tips {
   font-size: 1.4rem;
-  width: 70ch;
+  width: 45ch;
   display: inline-block;
   text-align: center;
   font-style: italic;
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
+  opacity: 0.9;
 }
 .modal__close {
   display: none;
+  visibility: hidden;
 }
 
 .welcome {
@@ -89,6 +95,7 @@ nav {
 
 .login {
   display: flex;
+  transition: all 0s;
 }
 
 .login__input {
@@ -102,7 +109,7 @@ nav {
   margin-right: 1rem;
   color: inherit;
   border: 1px solid #fff;
-  transition: all 0.3s;
+  transition: inherit;
 }
 
 .login__input:focus {
@@ -120,7 +127,7 @@ nav {
   font-size: 2.2rem;
   color: inherit;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: inherit;
 }
 
 .login__btn:hover,
@@ -128,6 +135,26 @@ nav {
 .btn--sort:hover,
 .btn--sort:focus {
   outline: none;
+  color: #777;
+}
+
+.logout__btn {
+  display: inline-block;
+  position: absolute;
+  right: 4rem;
+  border: none;
+  background: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #fff;
+  color: #bbb;
+  padding: 1rem 2rem;
+  width: 12rem;
+  border-radius: 10rem;
+  transition: all 0s;
+}
+.logout__btn:hover {
   color: #777;
 }
 
